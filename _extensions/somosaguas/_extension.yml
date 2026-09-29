@@ -1,9 +1,12 @@
 title: Nueva Somosaguas
 author: Nueva Somosaguas
-version: 0.1.0
+version: 0.2.0
 quarto-required: ">=1.5.0"
 contributes:
   formats:
+    html:
+      lang: es
+      theme: somosaguas.scss
     typst:
       lang: es
       # Resaltado nativo de Typst, como en la plantilla independiente.

@@ -1,0 +1,82 @@
+/*-- scss:defaults --*/
+// El tema de HTML de la Nueva Somosaguas: el papel, la tinta y el granate de la web,
+// con EB Garamond para el texto y Fira Code para el código (instaladas en el entorno;
+// fuera de él, Georgia y la monoespaciada del sistema).
+$granate: #800000;
+$tinta: #111111;
+$gris: #555555;
+$superficie: #f5f5ee;
+$borde: #e0e0d8;
+
+$body-bg: #fffff8;
+$body-color: $tinta;
+$link-color: $granate;
+$headings-color: $granate;
+$headings-font-weight: 700;
+$font-family-sans-serif: "EB Garamond", Garamond, Georgia, serif;
+$font-family-monospace: "Fira Code", monospace;
+$font-size-root: 19px;
+$line-height-base: 1.6;
+$border-color: $borde;
+$table-border-color: $borde;
+$code-color: $tinta;
+$code-bg: $superficie;
+$code-block-bg: $superficie;
+$code-block-border-left: $granate;
+
+/*-- scss:rules --*/
+h1 {
+  border-bottom: 2px solid $granate;
+  padding-bottom: 0.4rem;
+}
+
+h3 {
+  font-style: italic;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  background-color: rgba($granate, 0.08);
+}
+
+p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
+  border: 1px solid $borde;
+  border-radius: 3px;
+  padding: 0.15em 0.35em;
+}
+
+// Tablas de Tufte: sin líneas verticales, raya gruesa bajo la cabecera y al cierre.
+table {
+  margin: 2rem 0;
+}
+
+th {
+  border-bottom: 2px solid $tinta !important;
+}
+
+tbody tr:last-child td {
+  border-bottom: 2px solid $tinta;
+}
+
+blockquote {
+  border-left: 3px solid $granate;
+  padding-left: 1.2rem;
+  font-style: italic;
+  color: $gris;
+}
+
+// Mermaid mide el texto en su propia letra antes de que Quarto le ponga la del
+// documento: con la misma en los dos pasos, las etiquetas no se cortan.
+:root {
+  --mermaid-font-family: "trebuchet ms", verdana, arial, sans-serif;
+  --mermaid-fg-color--lightest: #{$superficie};
+  --mermaid-fg-color--lighter: #{$borde};
+}
+
+svg[id$="-mermaid"] foreignObject {
+  overflow: visible;
+}

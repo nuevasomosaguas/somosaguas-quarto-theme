@@ -6,6 +6,21 @@
 #let superficie = rgb("#f5f5ee")
 #let borde = rgb("#e0e0d8")
 
+$if(highlighting-definitions)$
+// Con el resaltado de skylighting (el de Quarto por omisión, o un tema en
+// syntax-highlighting), cada token es un raw en línea: sin esto llevaría la caja del
+// código en línea, y el bloque, el fondo gris de Quarto.
+#let Skylighting(fill: none, number: false, start: 1, sourcelines) = {
+  show raw.where(block: false): it => text(font: "Fira Code", size: 0.8em, it.text)
+  let lnum = start - 1
+  let lineas = for ln in sourcelines {
+    if number { lnum += 1; box(width: 24pt, text(fill: gris, [#lnum])) }
+    ln + EndLine()
+  }
+  block(width: 100%, fill: superficie, inset: 10pt, stroke: (left: 3pt + granate), radius: (right: 3pt), lineas)
+}
+$endif$
+
 // Márgenes de la maqueta a una columna: el derecho aloja las notas al margen.
 #let _margen-izq = 2.5cm
 #let _margen-der = 6.5cm

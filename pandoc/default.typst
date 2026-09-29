@@ -1,0 +1,90 @@
+// Plantilla de Typst de Pandoc para la Nueva Somosaguas: la de Pandoc 3.12, con la
+// maqueta de la extensión de Quarto (typst-template.typ, en esta misma carpeta) en
+// lugar de la suya. Va en ~/.local/share/pandoc/templates/.
+#set terms(hanging-indent: 1.5em)
+
+#let horizontalRule = line(start: (25%,0%), end: (75%,0%))
+// Polyfill divider to allow compiling with typst < 0.15:
+#let divider = if "divider" in std { divider } else { horizontalRule }
+
+#show figure.where(
+  kind: table
+): set figure.caption(position: $if(table-caption-position)$$table-caption-position$$else$top$endif$)
+
+#show figure.where(
+  kind: image
+): set figure.caption(position: $if(figure-caption-position)$$figure-caption-position$$else$bottom$endif$)
+
+$if(highlighting-definitions)$
+// syntax highlighting functions from skylighting:
+$highlighting-definitions$
+
+$endif$
+$typst-template.typ()$
+
+$if(smart)$
+$else$
+#set smartquote(enabled: false)
+
+$endif$
+$for(header-includes)$
+$header-includes$
+
+$endfor$
+#show: somosaguas.with(
+$if(title)$
+  titulo: [$title$],
+$endif$
+$if(subtitle)$
+  subtitulo: [$subtitle$],
+$endif$
+$if(author)$
+  autores: ($for(author)$"$if(author.name)$$author.name/nowrap$$else$$author/nowrap$$endif$",$endfor$),
+$endif$
+$if(date)$
+  fecha: [$date$],
+$endif$
+$if(abstract)$
+  resumen: [$abstract$],
+$endif$
+$if(columnas)$
+  columnas: $columnas$,
+$endif$
+$if(fondo)$
+  fondo: $fondo$,
+$endif$
+)
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+#outline(
+  title: auto,
+  depth: $toc-depth$
+);
+$endif$
+
+$body$
+
+$if(citations)$
+$for(nocite-ids)$
+#cite(label("${it}"), form: none)
+$endfor$
+$if(csl)$
+
+#set bibliography(style: "$csl$")
+$elseif(bibliographystyle)$
+
+#set bibliography(style: "$bibliographystyle$")
+$endif$
+$if(bibliography)$
+
+#bibliography(($for(bibliography)$"$bibliography$"$sep$,$endfor$)$if(full-bibliography)$, full: true$endif$)
+$endif$
+$endif$
+$for(include-after)$
+
+$include-after$
+$endfor$
