@@ -7,6 +7,7 @@ contributes:
     html:
       lang: es
       theme: somosaguas.scss
+      include-in-header: mathjax.html
     typst:
       lang: es
       # Resaltado nativo de Typst, como en la plantilla independiente.
