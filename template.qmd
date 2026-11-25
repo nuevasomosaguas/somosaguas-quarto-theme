@@ -13,9 +13,9 @@ format:
 
 # El fin de la especulación de salón
 
-La **Nueva Somosaguas** no es un ajuste cosmético ni una reforma académica de compromiso. Es una sociología que sustituye el arbitrio discursivo por las matemáticas y el contraste empírico de la biología.^[Sobre la unidad del conocimiento, véase E. O. Wilson, *Consilience* (1998).]
+La **Nueva Somosaguas** sustituye el ensayo especulativo por las matemáticas y el contraste empírico de la biología.^[Sobre la unidad del conocimiento, véase E. O. Wilson, *Consilience* (1998).]
 
-Frente a la tradición que redujo la sociología a una exégesis verbal de textos sagrados, nuestra facultad exige la **disciplina intelectual del dato**, la inferencia causal por diseño y la verificación formal. Los materiales se escriben en [Quarto](https://quarto.org) y se compilan con `quarto render`.
+Frente a la sociología reducida al comentario de textos, el grado trabaja con **datos**, inferencia causal por diseño y verificación formal. Los materiales se escriben en [Quarto](https://quarto.org) y se compilan con `quarto render`.
 
 ## Cimientos formales e inferencia rigurosa
 
@@ -25,7 +25,7 @@ $$
 \mathbb{E}[X] = \sum_x x \cdot P(X = x).
 $$
 
-> El análisis sociológico consiste en explicar los fenómenos sociales mediante los mecanismos que los producen.
+> El análisis sociológico consiste en explicar los fenómenos sociales por los mecanismos que los producen.
 
 ### Un ejemplo reproducible
 
